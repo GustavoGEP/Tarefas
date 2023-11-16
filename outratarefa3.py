@@ -4,7 +4,7 @@ import requests
 from requests import Session
 import openpyxl
 
-class urubu_do_pix():
+class AUS_ABS():
     def __init__(self):
         self.endpoint = "https://www.abs.gov.au"
         self.url = "{}/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia".format(self.endpoint)
@@ -75,12 +75,13 @@ class urubu_do_pix():
         self.df.to_excel("planilhafinal.xlsx", index=False)
 
 def main():
-    bot = urubu_do_pix()
+    bot = AUS_ABS()
     bot.ambientacao()
     bot.coleta()
     bot.tratamento()
     bot.merge()
     bot.upload()
+    print("End Main")
 
 if __name__ == "__main__":
     main()
